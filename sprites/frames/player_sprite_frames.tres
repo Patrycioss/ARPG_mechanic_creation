@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://db1reg4x72yyn"]
+
+[ext_resource type="Texture2D" uid="uid://buaq1fpiy6pdl" path="res://sprites/PC Computer - Undertale - Sans.png" id="1_qrknx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh7oa"]
+atlas = ExtResource("1_qrknx")
+region = Rect2(5, 21, 23, 30)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh7oa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://o0jo7yka2voi"]
+
+[ext_resource type="Texture2D" uid="uid://bhvdgddbia7kl" path="res://sprites/pixil-frame-0.png" id="1_1k1dl"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1k1dl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
