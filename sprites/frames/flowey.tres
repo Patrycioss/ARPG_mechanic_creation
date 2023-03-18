@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cl6jjmk1f5rqc"]
+
+[ext_resource type="Texture2D" uid="uid://ci105u5awo27a" path="res://sprites/flowey.png" id="1_ubxk4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcb2d"]
+atlas = ExtResource("1_ubxk4")
+region = Rect2(0, 0, 23, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wttnp"]
+atlas = ExtResource("1_ubxk4")
+region = Rect2(23, 0, 23, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_233p3"]
+atlas = ExtResource("1_ubxk4")
+region = Rect2(46, 0, 23, 33)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcb2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wttnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_233p3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

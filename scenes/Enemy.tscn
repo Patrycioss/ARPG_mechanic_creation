@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://wetklxn26cev"]
+
+[ext_resource type="Script" path="res://scripts/Entity.gd" id="1_6br7a"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_74ocf"]
+[ext_resource type="SpriteFrames" uid="uid://cl6jjmk1f5rqc" path="res://sprites/frames/flowey.tres" id="1_pe1bb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve7w6"]
+size = Vector2(23, 32)
+
+[node name="Enemy" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_74ocf")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_ve7w6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("1_pe1bb")
+metadata/_edit_lock_ = true
+
+[node name="Information" type="Node" parent="."]
+script = ExtResource("1_6br7a")
+speed = 100

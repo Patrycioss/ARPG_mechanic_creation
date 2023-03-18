@@ -2,12 +2,8 @@ extends Area2D
 
 @export var speed = 400
 
-var animatedSprite2D
-var screen_size
-
-func _ready():
-	animatedSprite2D = $AnimatedSprite2D
-	screen_size = get_viewport_rect().size
+@onready var animatedSprite2D = $AnimatedSprite2D
+@onready var screen_size = get_viewport_rect().size
 
 
 func _process(delta):

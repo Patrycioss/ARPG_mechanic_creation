@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1q4su7keos2"]
+[gd_scene load_steps=4 format=3 uid="uid://blrdpt2vhox82"]
 
 [ext_resource type="SpriteFrames" uid="uid://o0jo7yka2voi" path="res://sprites/frames/own.tres" id="1_8nc1r"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vt56k"]
@@ -7,6 +7,8 @@
 size = Vector2(80, 123)
 
 [node name="Player" type="Area2D"]
+top_level = true
+z_index = 1
 script = ExtResource("1_vt56k")
 metadata/_edit_group_ = true
 
