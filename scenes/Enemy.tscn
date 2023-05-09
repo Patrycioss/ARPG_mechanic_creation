@@ -13,6 +13,7 @@ script = ExtResource("1_74ocf")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_ve7w6")
 

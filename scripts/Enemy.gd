@@ -9,6 +9,7 @@ extends RigidBody2D
 @export_node_path("Area2D") var target_path
 @onready var target = get_node(target_path)
 
+var all_objects
 
 func _physics_process(delta):
 	var u_direction = (target.position - position).normalized()	

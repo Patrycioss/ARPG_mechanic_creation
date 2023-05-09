@@ -5,9 +5,15 @@
 
 [node name="Main" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_17fww")]
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Node2D" instance=ExtResource("1_17fww")]
+top_level = false
+y_sort_enabled = true
 position = Vector2(578, 458)
 
-[node name="Enemy" parent="." instance=ExtResource("2_fxp0g")]
+[node name="Enemy" parent="Node2D" instance=ExtResource("2_fxp0g")]
+y_sort_enabled = true
 position = Vector2(330, 448)
 target_path = NodePath("../Player")
