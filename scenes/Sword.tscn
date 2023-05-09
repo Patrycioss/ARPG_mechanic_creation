@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://q4kp2k5jjqqo"]
+
+[ext_resource type="SpriteFrames" uid="uid://bntga3dl7xllm" path="res://sprites/sword/sword.tres" id="1_45ujk"]
+
+[node name="Sword" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_45ujk")
+animation = &"swing"
+autoplay = "idle"

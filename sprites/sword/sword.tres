@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bntga3dl7xllm"]
+
+[ext_resource type="Texture2D" uid="uid://dhhqleqqqj66p" path="res://sprites/sword/swing/6 04-23-43-3690.png" id="1_pnl30"]
+[ext_resource type="Texture2D" uid="uid://tsgf6dlf0c53" path="res://sprites/sword/swing/0 04-23-43-2592.png" id="2_apm8s"]
+[ext_resource type="Texture2D" uid="uid://b6evr3xuqy6w0" path="res://sprites/sword/swing/1 04-23-43-2881.png" id="3_7utb4"]
+[ext_resource type="Texture2D" uid="uid://c7o3uwe0rlrkw" path="res://sprites/sword/swing/2 04-23-43-3045.png" id="4_un700"]
+[ext_resource type="Texture2D" uid="uid://w6po3kxhep06" path="res://sprites/sword/swing/3 04-23-43-3225.png" id="5_02oal"]
+[ext_resource type="Texture2D" uid="uid://de44livmq06fy" path="res://sprites/sword/swing/4 04-23-43-3389.png" id="6_fqfae"]
+[ext_resource type="Texture2D" uid="uid://cct34va8rd818" path="res://sprites/sword/swing/5 04-23-43-3543.png" id="7_3b8d2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pnl30")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_apm8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7utb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_un700")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_02oal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fqfae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3b8d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_pnl30")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 10.0
+}]
