@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://q4kp2k5jjqqo"]
+[gd_scene load_steps=4 format=3 uid="uid://q4kp2k5jjqqo"]
 
 [ext_resource type="SpriteFrames" uid="uid://bntga3dl7xllm" path="res://sprites/sword/sword.tres" id="1_45ujk"]
+[ext_resource type="Script" path="res://scripts/weapons/Sword.gd" id="2_heccn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_575jq"]
+size = Vector2(248, 129)
 
 [node name="Sword" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_45ujk")
-animation = &"swing"
+animation = &"idle"
 autoplay = "idle"
+script = ExtResource("2_heccn")
+cooldown_seconds = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120, 92.5)
+shape = SubResource("RectangleShape2D_575jq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

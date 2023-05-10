@@ -6,7 +6,6 @@ extends Area2D
 @onready var screen_size = get_viewport_rect().size
 
 @onready var sprite = $Sprite
-@onready var sword = $Sprite/Sword
 
 @onready var right_x_scale = sprite.scale.x
 
@@ -43,12 +42,6 @@ func _process(delta):
 #
 #	else:
 #		animatedSprite2D.stop()
-#
-
-	if Input.is_action_pressed("attack"):
-		print("ja")
-		sword.play("swing")
-	
 	
 	position += velocity * delta;
 	position.x = clamp(position.x, 0, screen_size.x)
