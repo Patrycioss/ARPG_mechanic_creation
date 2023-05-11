@@ -30,4 +30,3 @@ z_index = 1
 position = Vector2(-2.38478, -12.9507)
 rotation = 3.14159
 scale = Vector2(0.13221, -0.172314)
-animation = &"swing"
