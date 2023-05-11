@@ -13,7 +13,7 @@ top_level = false
 y_sort_enabled = true
 position = Vector2(578, 458)
 
-[node name="Enemy" parent="Node2D" instance=ExtResource("2_fxp0g")]
+[node name="Enemy" parent="Node2D" node_paths=PackedStringArray("target") instance=ExtResource("2_fxp0g")]
 y_sort_enabled = true
 position = Vector2(330, 448)
-target_path = NodePath("../Player")
+target = NodePath("../Player")

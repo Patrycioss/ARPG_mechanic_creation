@@ -1,13 +1,10 @@
 extends RigidBody2D
 
+@export var target : Node 
 
-
-#Nodes
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var information = get_node("Information")
+@onready var information = $Entity
 
-@export_node_path("Area2D") var target_path
-@onready var target = get_node(target_path)
 
 var all_objects
 
