@@ -6,6 +6,7 @@ extends Node
 @export var max_health = -1
 
 signal on_death
+signal on_revive
 signal amount_changed
 
 var _amount : int = 0
@@ -17,17 +18,30 @@ func _init():
 	amount_changed.emit()
 	
 func damage(pDamage : int):
+	if is_dead(): return
+	
 	_amount -= pDamage
 	if _amount <= 0:
 		_amount = 0	
 		on_death.emit()
+		
 	amount_changed.emit()
 	
 func is_dead() -> bool:
-	return (_amount > 0)
+	return (_amount <= 0)
 
-func heal(pHealth : int):
+func heal(pHealth : int, pRevive : bool = false):
+	
+	var dead = is_dead()
+	
+	if dead && not pRevive:
+		return
+			
 	_amount += pHealth
 	if _amount > max_health:
 		_amount = max_health
+	
+	if dead:
+		on_revive.emit()
+		
 	amount_changed.emit()

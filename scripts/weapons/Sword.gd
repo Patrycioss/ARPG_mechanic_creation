@@ -18,9 +18,17 @@ func use():
 #	print("_on_area_2d_body_shape_entered")
 
 
-func _on_area_2d_body_entered(_body):
-	print(_body)
-#	print("_on_area_2d_body_entered")
+func _on_area_2d_body_entered(body):
+	print(body)
+	
+	var entity := body.find_child("Entity") as Entity
+	
+	if not entity:
+		return
+		
+	print("jep")
+	
+	entity.get_health().damage(1)
 
 
 func _on_animation_player_animation_finished(anim_name):

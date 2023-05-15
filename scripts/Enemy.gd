@@ -11,3 +11,7 @@ var all_objects
 func _physics_process(delta):
 	var u_direction = (target.position - position).normalized()	
 	position += u_direction * delta * information.speed
+
+
+func _on_health_on_death():
+	print("enemy dead")	

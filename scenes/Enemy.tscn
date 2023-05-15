@@ -33,3 +33,5 @@ script = ExtResource("4_e0t1a")
 
 [node name="Inventory" type="Node" parent="Entity"]
 script = ExtResource("5_ptuyu")
+
+[connection signal="on_death" from="Entity/Health" to="." method="_on_health_on_death"]
