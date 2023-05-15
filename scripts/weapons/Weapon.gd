@@ -11,16 +11,13 @@ func _ready():
 
 func _process(_delta : float):
 	if Input.is_action_pressed("attack"):
-#		print("ja")
 		try_use()
 
 func use():
 	pass
 
 func try_use() -> bool:
-#	print(timer.get_time_left())
 	if abs(timer.get_time_left()) <= 0.0001:
-#		print("nee")
 		use()
 		timer.start(cooldown_seconds)
 		return true

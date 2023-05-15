@@ -12,15 +12,14 @@ func use():
 	
 func _on_area_2d_body_entered(body):
 	print(body)
+	var entity := body.owner as Entity
+	print(entity)
 	
-	var entity := body.find_child("Entity") as Entity
 	
 	if not entity:
 		return
-		
-	print("jep")
 	
-	entity.get_health().damage(strength)
+	entity.health.damage(strength)
 
 
 func _on_animation_player_animation_finished(anim_name):

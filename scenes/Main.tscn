@@ -1,19 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxy5c4rstntc0"]
 
-[ext_resource type="PackedScene" uid="uid://blrdpt2vhox82" path="res://scenes/Player.tscn" id="1_17fww"]
-[ext_resource type="PackedScene" uid="uid://wetklxn26cev" path="res://scenes/Enemy.tscn" id="2_fxp0g"]
+[ext_resource type="PackedScene" uid="uid://54v45l3efova" path="res://scenes/Player2.tscn" id="1_4rvpo"]
+[ext_resource type="PackedScene" uid="uid://djpov1opx5gjl" path="res://scenes/Enemy2.tscn" id="2_xspaq"]
 
 [node name="Main" type="Node"]
 
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Player" parent="Node2D" instance=ExtResource("1_17fww")]
-top_level = false
-y_sort_enabled = true
-position = Vector2(578, 458)
+[node name="Player2" parent="Node2D" instance=ExtResource("1_4rvpo")]
+scale = Vector2(4.84718, 4.84718)
 
-[node name="Enemy" parent="Node2D" node_paths=PackedStringArray("target") instance=ExtResource("2_fxp0g")]
-y_sort_enabled = true
-position = Vector2(330, 448)
-target = NodePath("../Player")
+[node name="Enemy2" parent="Node2D" node_paths=PackedStringArray("target") instance=ExtResource("2_xspaq")]
+scale = Vector2(4.84718, 4.84718)
+target = NodePath("../Player2")

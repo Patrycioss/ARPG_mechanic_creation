@@ -17,4 +17,3 @@ func _physics_process(delta):
 func _on_health_on_death():
 	print(name + " died")
 	queue_free()
-

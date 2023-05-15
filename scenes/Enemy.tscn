@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://wetklxn26cev"]
+[gd_scene load_steps=6 format=3 uid="uid://wetklxn26cev"]
 
 [ext_resource type="Script" path="res://scripts/Entity.gd" id="1_6br7a"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_74ocf"]
 [ext_resource type="SpriteFrames" uid="uid://cl6jjmk1f5rqc" path="res://sprites/frames/flowey.tres" id="1_pe1bb"]
-[ext_resource type="Script" path="res://scripts/stats/Health.gd" id="4_e0t1a"]
 [ext_resource type="Script" path="res://scripts/stats/Inventory.gd" id="5_ptuyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ve7w6"]
@@ -28,11 +27,5 @@ metadata/_edit_lock_ = true
 [node name="Entity" type="Node" parent="."]
 script = ExtResource("1_6br7a")
 
-[node name="Health" type="Node" parent="Entity"]
-script = ExtResource("4_e0t1a")
-start_amount = 3
-
 [node name="Inventory" type="Node" parent="Entity"]
 script = ExtResource("5_ptuyu")
-
-[connection signal="on_death" from="Entity/Health" to="." method="_on_health_on_death"]

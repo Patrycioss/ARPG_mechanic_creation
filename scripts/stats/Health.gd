@@ -1,5 +1,4 @@
 class_name Health
-extends Node
 
 @export var start_amount = 1
 @export_category("If -1 takes start_amount as max health")
@@ -10,14 +9,16 @@ signal on_revive
 signal amount_changed
 
 var _amount : int = 0
+	
 
-func _ready():
-	_amount = start_amount
+func _init(p_start_health : int):
+	_amount = p_start_health
 	if max_health == -1:
-		max_health = start_amount
+		max_health = p_start_health
 	amount_changed.emit()
 	
 func damage(pDamage : int):
+	print("ja")
 	if is_dead(): return
 	
 	_amount -= pDamage

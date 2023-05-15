@@ -1,18 +1,14 @@
 class_name Entity
 extends Node
 
-@onready var _health = $Health
-@onready var _inventory = $Inventory
+@export var _start_health = 3
+
+@onready var health = Health.new(_start_health)
+
+@onready var rigidbody = $RigidBody2D
+@onready var sprite = $RigidBody2D/Sprite2D
+
 
 func _ready():
-	if _health == null:
-		push_error("No health node for entity with name: " + get_parent().name)
-	
-	if _inventory == null:
-		push_error("No inventory node for entity with name: " + get_parent().name)
-
-func get_health() -> Health:
-	return _health
-	
-func get_inventory() -> Inventory:
-	return _inventory
+	if rigidbody == null:
+		push_error("Make sure entity with name: {" + name + "} node has a Rigidbody2D")
