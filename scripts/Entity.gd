@@ -1,9 +1,6 @@
 class_name Entity
 extends Node
 
-@export var maxHealth = 3
-@export var speed = 300
-
 @onready var _health = $Health
 @onready var _inventory = $Inventory
 

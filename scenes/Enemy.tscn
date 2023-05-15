@@ -30,6 +30,7 @@ script = ExtResource("1_6br7a")
 
 [node name="Health" type="Node" parent="Entity"]
 script = ExtResource("4_e0t1a")
+start_amount = 3
 
 [node name="Inventory" type="Node" parent="Entity"]
 script = ExtResource("5_ptuyu")

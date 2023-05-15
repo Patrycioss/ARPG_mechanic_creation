@@ -11,7 +11,7 @@ signal amount_changed
 
 var _amount : int = 0
 
-func _init():
+func _ready():
 	_amount = start_amount
 	if max_health == -1:
 		max_health = start_amount
@@ -21,6 +21,7 @@ func damage(pDamage : int):
 	if is_dead(): return
 	
 	_amount -= pDamage
+	
 	if _amount <= 0:
 		_amount = 0	
 		on_death.emit()
