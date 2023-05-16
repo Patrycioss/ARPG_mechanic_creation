@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://q4kp2k5jjqqo"]
+[gd_scene load_steps=8 format=3 uid="uid://q4kp2k5jjqqo"]
 
 [ext_resource type="Texture2D" uid="uid://bnliqj0gjmvyp" path="res://sprites/sword/swordsheet.png" id="1_rxlqf"]
 [ext_resource type="Script" path="res://scripts/weapons/Sword.gd" id="2_heccn"]
@@ -91,7 +91,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.903104, -0.950618), Vector2(1.5031, -1.47062), Vector2(1.44085, -2.25251), Vector2(1.42845, -2.63497), Vector2(1.57471, -2.19536), Vector2(0.968377, -3.2491), Vector2(-0.961724, -0.970508)]
+"values": [Vector2(-1.503, -3.736), Vector2(-1.503, -3.736), Vector2(-1.503, -3.736), Vector2(2.54845, -2.63497), Vector2(2.54845, -2.63497), Vector2(0.968377, -3.2491), Vector2(0.968377, -3.2491)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -108,30 +108,58 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:rotation")
+tracks/3/path = NodePath("Area2D/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+"values": [Vector2(-102.283, 0), Vector2(-102.283, 0), Vector2(-102.283, 0), Vector2(11, -56), Vector2(11, -56), Vector2(142, -3), Vector2(142, -3)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Area2D/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+
+[sub_resource type="Animation" id="Animation_urj24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-142, 80), Vector2(-104, 80), Vector2(-107, 15), Vector2(-50, -42), Vector2(42, -45), Vector2(142, -3), Vector2(143, 81)]
+"values": [Vector2(-102.283, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1.503, -3.736)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k6nyf"]
 _data = {
+"RESET": SubResource("Animation_urj24"),
 "idle": SubResource("Animation_0y0k0"),
 "swing": SubResource("Animation_jopf2")
 }
@@ -157,14 +185,14 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 4
-collision_priority = 2.0
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(143, 81)
-scale = Vector2(-0.961724, -0.970508)
+position = Vector2(-102.283, 0)
+scale = Vector2(-1.503, -3.736)
 shape = SubResource("RectangleShape2D_xmopu")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

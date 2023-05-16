@@ -33,9 +33,9 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 
-	
-	rigidbody.position += velocity * delta;
-	rigidbody.position.x = clamp(rigidbody.position.x, 0, screen_size.x)
-	rigidbody.position.y = clamp(rigidbody.position.y, 0, screen_size.y)
+	rigidbody.apply_force(velocity)
+#	rigidbody.position += velocity * delta;
+#	rigidbody.position.x = clamp(rigidbody.position.x, 0, screen_size.x)
+#	rigidbody.position.y = clamp(rigidbody.position.y, 0, screen_size.y)
 	
 	
