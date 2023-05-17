@@ -17,7 +17,8 @@ y_sort_enabled = true
 position = Vector2(570.5, 649)
 shape = SubResource("RectangleShape2D_gk6vs")
 
-[node name="Enemy_Area" parent="Node2D" node_paths=PackedStringArray("target") instance=ExtResource("1_re4p4")]
-target = NodePath("../Player_Area")
+[node name="Enemy" parent="Node2D" instance=ExtResource("1_re4p4")]
+position = Vector2(104, 23)
 
-[node name="Player_Area" parent="Node2D" instance=ExtResource("2_kouce")]
+[node name="Player" parent="Node2D" instance=ExtResource("2_kouce")]
+position = Vector2(104, 23)

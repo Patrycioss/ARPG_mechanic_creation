@@ -9,10 +9,11 @@ var health : Health
 @onready var area = $Area2D
 
 
-func _ready():
+func _init():
+	print("jep")
 	health = Health.new(_start_health)
-	health.on_death.connect(_on_death())
-	health.amount_changed.connect(_on_health_change())
+	health.on_death.connect(_on_death)
+	health.amount_changed.connect(_on_health_change)
  
 func _on_death():
 	pass

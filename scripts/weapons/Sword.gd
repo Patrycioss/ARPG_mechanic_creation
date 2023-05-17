@@ -25,4 +25,9 @@ func _on_area_2d_area_entered(area):
 	if not entity:
 		return
 
-	entity.health.damage(strength)
+
+	if not entity.health:
+		print("what")
+	else:
+		entity.health.damage(strength)
+	
