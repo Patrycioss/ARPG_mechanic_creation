@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxy5c4rstntc0"]
+[gd_scene load_steps=4 format=3 uid="uid://ieu3h67bbldk"]
 
-[ext_resource type="PackedScene" uid="uid://54v45l3efova" path="res://scenes/Player2.tscn" id="1_4rvpo"]
-[ext_resource type="PackedScene" uid="uid://djpov1opx5gjl" path="res://scenes/Enemy2.tscn" id="2_xspaq"]
+[ext_resource type="PackedScene" uid="uid://bvp44e622ooo2" path="res://scenes/Enemy.tscn" id="1_re4p4"]
+[ext_resource type="PackedScene" uid="uid://d2ryvmccg514i" path="res://scenes/Player.tscn" id="2_kouce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk6vs"]
 size = Vector2(1139, 92)
@@ -11,15 +11,14 @@ size = Vector2(1139, 92)
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Player2" parent="Node2D" instance=ExtResource("1_4rvpo")]
-y_sort_enabled = true
-
-[node name="Enemy2" parent="Node2D" node_paths=PackedStringArray("target") instance=ExtResource("2_xspaq")]
-y_sort_enabled = true
-target = NodePath("../Player2")
-
 [node name="Area2D" type="StaticBody2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 position = Vector2(570.5, 649)
 shape = SubResource("RectangleShape2D_gk6vs")
+
+[node name="Enemy" parent="Node2D" instance=ExtResource("1_re4p4")]
+position = Vector2(104, 23)
+
+[node name="Player" parent="Node2D" instance=ExtResource("2_kouce")]
+position = Vector2(104, 23)

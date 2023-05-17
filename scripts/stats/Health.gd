@@ -19,9 +19,13 @@ func _init(p_start_health : int):
 	
 func damage(pDamage : int):
 	print("ja")
+	print("before amount %d" %_amount)
+
 	if is_dead(): return
 	
 	_amount -= pDamage
+	print("after amount %d" %_amount)
+	
 	
 	if _amount <= 0:
 		_amount = 0	

@@ -1,16 +1,19 @@
-extends Area2D
+extends Entity
 
 @export var speed = 400
 
-#@onready var animatedSprite2D = $AnimatedSprite2D
-@onready var screen_size = get_viewport_rect().size
+var screen_size
+var right_x_scale
 
-@onready var sprite = $Sprite
+func _ready():
+	right_x_scale = sprite.scale.x
+	var a = sprite.get_viewport()
+	if a != null:
+		var b = a.get_visible_rect()
+		if b != null:
+			screen_size = b.size
 
-@onready var right_x_scale = sprite.scale.x
-
-
-func _process(delta):
+func _process(_delta):
 	var velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_right"):
@@ -26,25 +29,14 @@ func _process(delta):
 	
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
-	
-#	if velocity.x != 0:
-###		animatedSprite2D.animation = "walk"		
-#
-#		if velocity.x < 0:
-#
-#
-#		sprite.flip_h = velocity.x < 0
-##
-#
+
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-#		animatedSprite2D.play()
-#
-#	else:
-#		animatedSprite2D.stop()
+
 	
-	position += velocity * delta;
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
-	
-	
+	position += velocity * _delta
+
+#	rigidbody.apply_force(velocity)
+#	rigidbody.position += velocity * delta;
+#	rigidbody.position.x = clamp(rigidbody.position.x, 0, screen_size.x)
+#	rigidbody.position.y = clamp(rigidbody.position.y, 0, screen_size.y)

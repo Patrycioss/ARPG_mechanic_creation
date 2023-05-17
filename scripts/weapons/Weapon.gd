@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name Weapon
 
 @export var cooldown_seconds = 0
 @export var strength = 1

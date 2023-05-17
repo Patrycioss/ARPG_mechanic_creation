@@ -1,14 +1,22 @@
 class_name Entity
-extends Node
+extends Node2D
 
 @export var _start_health = 3
 
-@onready var health = Health.new(_start_health)
+var health : Health
 
-@onready var rigidbody = $RigidBody2D
-@onready var sprite = $RigidBody2D/Sprite2D
+@onready var sprite = $Area2D/Sprite2D
+@onready var area = $Area2D
 
 
-func _ready():
-	if rigidbody == null:
-		push_error("Make sure entity with name: {" + name + "} node has a Rigidbody2D")
+func _init():
+	print("jep")
+	health = Health.new(_start_health)
+	health.on_death.connect(_on_death)
+	health.amount_changed.connect(_on_health_change)
+ 
+func _on_death():
+	pass
+	
+func _on_health_change():
+	pass
