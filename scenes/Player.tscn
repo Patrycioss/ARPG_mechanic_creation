@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://blrdpt2vhox82"]
+[gd_scene load_steps=6 format=3 uid="uid://blrdpt2vhox82"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vt56k"]
 [ext_resource type="Texture2D" uid="uid://cu3u2e0c62fvr" path="res://textures/white.png" id="2_yary0"]
+[ext_resource type="PackedScene" uid="uid://q4kp2k5jjqqo" path="res://scenes/Sword.tscn" id="3_inrsq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_102bd"]
 
@@ -18,7 +19,14 @@ material = SubResource("ShaderMaterial_102bd")
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_lknj5")
 
-[node name="White" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(0, 1)
 scale = Vector2(-2.51595, 1.93039)
 texture = ExtResource("2_yary0")
+
+[node name="Sword" parent="Sprite" instance=ExtResource("3_inrsq")]
+z_index = 1
+position = Vector2(-2.38478, -12.9507)
+rotation = 3.14159
+scale = Vector2(0.13221, -0.172314)
