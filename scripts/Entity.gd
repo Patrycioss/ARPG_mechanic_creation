@@ -2,11 +2,15 @@ class_name Entity
 extends Node2D
 
 @export var _start_health = 3
+@export var damageable : bool = true
 
 var health : Health
 
 @onready var sprite = $Area2D/Sprite2D
 @onready var area = $Area2D
+
+signal on_hit
+
 
 
 func _init():
@@ -20,3 +24,8 @@ func _on_death():
 	
 func _on_health_change():
 	pass
+	
+func hit(amount : int):
+	on_hit.emit()
+	if damageable:
+		health.damage(amount)
