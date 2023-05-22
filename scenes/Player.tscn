@@ -21,7 +21,6 @@ texture = ExtResource("2_faxhg")
 [node name="Sword" parent="Area2D/Sprite2D" instance=ExtResource("3_81jv4")]
 position = Vector2(-1.25786, 22.8674)
 scale = Vector2(0.317547, -0.320715)
-strength = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/Sprite2D"]
 libraries = {
