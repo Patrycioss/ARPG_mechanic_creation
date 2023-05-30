@@ -1,21 +1,44 @@
-[gd_scene format=3 uid="uid://8tip7m24rle7"]
+[gd_scene load_steps=2 format=3 uid="uid://8tip7m24rle7"]
+
+[ext_resource type="Texture2D" uid="uid://cygayca1ouatq" path="res://sprites/single_flowey.png" id="1_kfq1n"]
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -381.0
+offset_top = -73.0
+offset_right = -282.0
+offset_bottom = -52.0
 scale = Vector2(5, 5.67143)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-text = "Hoi "
+offset_left = -226.0
+offset_top = -26.0
+offset_right = -33.0
+offset_bottom = 10.0
+scale = Vector2(0.955104, 0.955104)
+text = "\"lmao, xd even\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -352.0
+offset_top = -57.0
+offset_right = -323.0
+offset_bottom = -16.0
+scale = Vector2(2.19666, 2.19666)
+texture = ExtResource("1_kfq1n")
