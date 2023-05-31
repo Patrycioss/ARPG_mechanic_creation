@@ -21,8 +21,9 @@ shape = SubResource("RectangleShape2D_gk6vs")
 [node name="Player" parent="Node2D" instance=ExtResource("2_kouce")]
 position = Vector2(104, 23)
 
-[node name="NPC" parent="Node2D" instance=ExtResource("3_edg8u")]
+[node name="NPC" parent="Node2D" node_paths=PackedStringArray("dialogue_manager") instance=ExtResource("3_edg8u")]
 position = Vector2(171, 290)
+dialogue_manager = NodePath("../DialogueBox")
 
 [node name="DialogueBox" parent="Node2D" instance=ExtResource("3_xe3tw")]
 z_index = 3

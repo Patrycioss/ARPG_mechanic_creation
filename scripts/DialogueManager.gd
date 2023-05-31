@@ -8,6 +8,8 @@ var _dialogues : Array
 var _current_dialogue : Dialogue
 
 func dialogue_available():
+	_dialogues[0].print_contents()
+	
 	if _dialogue_index < _dialogues.size() && _dialogue_index >= 0:
 		return true
 	else:

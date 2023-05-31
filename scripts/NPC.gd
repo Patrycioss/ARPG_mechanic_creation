@@ -1,14 +1,20 @@
 extends Entity
 
-@onready var dialogue_manager = $DialogueManager
+@export var dialogue_manager : DialogueManager
+
+@export_file var dialogue_path
 
 @export var messages : Array
-@export var dialogue : Dialogue
 
 func _ready():
 	on_hit.connect(_on_hit)
 	
-	dialogue_manager.add_dialogue()
+#	print(Dialogue.make_from_text_file(dialogue_path))
+	
+	
+	var dialogue = Dialogue.make_from_text_file(dialogue_path)
+	dialogue.print_contents()
+	dialogue_manager.add_dialogue(dialogue)
 
 func _on_hit():
 	pass
