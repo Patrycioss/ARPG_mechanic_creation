@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvp44e622ooo2"]
+[gd_scene load_steps=6 format=3 uid="uid://bvp44e622ooo2"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_jbriw"]
 [ext_resource type="Texture2D" uid="uid://ci105u5awo27a" path="res://sprites/flowey.png" id="2_2pf84"]
+[ext_resource type="Texture2D" uid="uid://cygayca1ouatq" path="res://sprites/single_flowey.png" id="2_lhtyg"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vw23f"]
 
@@ -10,6 +11,8 @@ size = Vector2(24, 34)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_jbriw")
+_name = "Flowey"
+_sender_texture = ExtResource("2_lhtyg")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

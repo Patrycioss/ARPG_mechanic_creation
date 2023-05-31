@@ -35,7 +35,7 @@ static func make_from_text_file(file_path : String):
 		print(letter)
 		message = message + letter
 		if letter == '?' || letter == '!':
-			new_dialogue.add_message(message)
+			new_dialogue.add_message(Message.new())
 			message = ""
 			
 	new_dialogue.add_message(message)
