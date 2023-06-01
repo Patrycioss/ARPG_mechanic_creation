@@ -1,1 +1,2 @@
-Hello this is dialogue.Amazing right?This is so great!Wow :D!
+[Flowey]Hello, my name is Flowey!
+[Player]Hello Flowey!

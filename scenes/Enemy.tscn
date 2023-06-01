@@ -12,7 +12,7 @@ size = Vector2(24, 34)
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_jbriw")
 _name = "Flowey"
-_sender_texture = ExtResource("2_lhtyg")
+_ID_picture = ExtResource("2_lhtyg")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

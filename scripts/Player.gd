@@ -6,6 +6,7 @@ var screen_size
 var right_x_scale
 
 func _ready():
+	super._ready()
 	right_x_scale = sprite.scale.x
 	var a = sprite.get_viewport()
 	if a != null:

@@ -2,7 +2,8 @@ class_name DialogueManager
 extends Control
 
 @onready var label : Label = $Label
-"text"
+@onready var texture_rect : TextureRect = $TextureRect
+
 var _dialogue_index : int = 0
 var _dialogues : Array
 var _current_dialogue : Dialogue
@@ -32,10 +33,11 @@ func _advance():
 			print("No dialogue available!")
 			return
 		
-	_display_string(_current_dialogue.next_message())
+	_display_message(_current_dialogue.next_message())
 			
-func _display_string(pString : String):
-	label.text = pString	
+func _display_message(pMessage : Message):
+	texture_rect.texture = pMessage.get_ID().picture
+	label.text = pMessage.get_contents()	
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Next"):
