@@ -170,7 +170,6 @@ size = Vector2(148.75, 71.375)
 [node name="Sword" type="Sprite2D"]
 texture = ExtResource("1_rxlqf")
 hframes = 7
-frame = 6
 script = ExtResource("2_heccn")
 cooldown_seconds = 1
 
@@ -192,7 +191,6 @@ collision_mask = 2
 position = Vector2(-102.283, 0)
 scale = Vector2(-1.503, -3.736)
 shape = SubResource("RectangleShape2D_xmopu")
-disabled = true
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

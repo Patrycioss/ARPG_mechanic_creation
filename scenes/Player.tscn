@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2ryvmccg514i"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_83x3v"]
-[ext_resource type="Texture2D" uid="uid://cu3u2e0c62fvr" path="res://textures/white.png" id="2_faxhg"]
 [ext_resource type="Texture2D" uid="uid://dqa1sncg8srd7" path="res://textures/white.tres" id="2_pxelx"]
 [ext_resource type="PackedScene" uid="uid://q4kp2k5jjqqo" path="res://scenes/Sword.tscn" id="3_81jv4"]
+[ext_resource type="Texture2D" uid="uid://bikxaiweumgke" path="res://sprites/frisk/frisksheet.png" id="3_vtkui"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vw23f"]
 
@@ -18,12 +18,14 @@ _ID_picture = ExtResource("2_pxelx")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-scale = Vector2(1.59, -1.57429)
-texture = ExtResource("2_faxhg")
+scale = Vector2(-5, 5)
+texture = ExtResource("3_vtkui")
+hframes = 6
+vframes = 2
 
 [node name="Sword" parent="Area2D/Sprite2D" instance=ExtResource("3_81jv4")]
-position = Vector2(-1.25786, 22.8674)
-scale = Vector2(0.317547, -0.320715)
+position = Vector2(7, -1)
+scale = Vector2(-0.1, 0.1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/Sprite2D"]
 libraries = {
