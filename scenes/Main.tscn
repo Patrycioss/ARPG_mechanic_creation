@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dknkjgau60wsp"]
+[gd_scene load_steps=5 format=3 uid="uid://dknkjgau60wsp"]
 
 [ext_resource type="PackedScene" uid="uid://d2ryvmccg514i" path="res://scenes/Player.tscn" id="2_kouce"]
-[ext_resource type="Texture2D" uid="uid://cb6enp32l6jkg" path="res://sprites/small-player-test.png" id="2_vyije"]
 [ext_resource type="PackedScene" uid="uid://y4jnayg3odr" path="res://scenes/DialogueBox.tscn" id="3_xe3tw"]
 [ext_resource type="PackedScene" uid="uid://bme1klcn5wuxk" path="res://scenes/FloweyNPC.tscn" id="4_2u0su"]
 
@@ -21,7 +20,6 @@ shape = SubResource("RectangleShape2D_gk6vs")
 
 [node name="Player" parent="Node2D" instance=ExtResource("2_kouce")]
 position = Vector2(104, 23)
-_ID_picture = ExtResource("2_vyije")
 
 [node name="DialogueBox" parent="Node2D" instance=ExtResource("3_xe3tw")]
 z_index = 3

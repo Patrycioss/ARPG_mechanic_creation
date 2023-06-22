@@ -1,6 +1,7 @@
 extends Entity
 
 @export var speed = 400
+@export var animation_player : AnimationPlayer
 
 var screen_size
 var right_x_scale
@@ -33,8 +34,20 @@ func _process(_delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+	elif velocity.length() == 0:
+		animation_player.play("walkDown")
+		animation_player.pause()
+		
 
-	
+	if velocity.y <= 0.5 && velocity.y >= -0.5:
+		animation_player.play("walkLeft")
+		
+	elif velocity.y > 0.5:
+		animation_player.play("walkDown")
+
+	elif velocity.y < -0.5:
+		animation_player.play("walkUp")
+			
 	position += velocity * _delta
 
 #	rigidbody.apply_force(velocity)

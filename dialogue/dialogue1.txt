@@ -1,2 +1,3 @@
 [Flowey]Hello, my name is Flowey!
 [Player]Hello Flowey!
+[Flowey]I don't know a bunch of text :)
