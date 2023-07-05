@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd54qu1ingfen"]
+
+[ext_resource type="PackedScene" uid="uid://cqxemw0bjsmtp" path="res://scenes/NPC.tscn" id="1_56fjg"]
+[ext_resource type="Texture2D" uid="uid://cygayca1ouatq" path="res://sprites/single_flowey.png" id="2_wv25n"]
+
+[node name="NPC" instance=ExtResource("1_56fjg")]
+dialogue_path = "res://dialogue/d_flowey_1.txt"
+_name = "Flowey"
+_ID_picture = ExtResource("2_wv25n")
+damageable = false

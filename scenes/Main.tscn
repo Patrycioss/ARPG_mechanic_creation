@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dknkjgau60wsp"]
 
 [ext_resource type="PackedScene" uid="uid://d2ryvmccg514i" path="res://scenes/Player.tscn" id="2_kouce"]
+[ext_resource type="PackedScene" uid="uid://cd54qu1ingfen" path="res://scenes/npc_flowey.tscn" id="3_4jplh"]
 [ext_resource type="PackedScene" uid="uid://y4jnayg3odr" path="res://scenes/DialogueBox.tscn" id="3_xe3tw"]
-[ext_resource type="PackedScene" uid="uid://bme1klcn5wuxk" path="res://scenes/FloweyNPC.tscn" id="4_2u0su"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk6vs"]
 size = Vector2(1139, 92)
@@ -29,5 +29,6 @@ offset_top = 602.0
 offset_right = 691.0
 offset_bottom = 602.0
 
-[node name="FloweyNPC" parent="Node2D" node_paths=PackedStringArray("dialogue_manager") instance=ExtResource("4_2u0su")]
+[node name="npc_flowey" parent="Node2D" node_paths=PackedStringArray("dialogue_manager") instance=ExtResource("3_4jplh")]
+position = Vector2(580, 343)
 dialogue_manager = NodePath("../DialogueBox")

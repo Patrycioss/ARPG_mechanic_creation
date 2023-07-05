@@ -8,6 +8,22 @@ var _dialogue_index : int = 0
 var _dialogues : Array
 var _current_dialogue : Dialogue
 
+
+var _connected_npcs : Array
+
+func connect_npc(npc : NPC):
+	_connected_npcs.insert(_connected_npcs.size(), npc)
+	pass
+	
+func disconnect_npc(npc : NPC):
+	var i = _connected_npcs.find(npc)
+	if (i != -1):
+		_connected_npcs.remove_at(i)
+	pass
+
+func get_connected_npcs():
+	return _connected_npcs
+
 func dialogue_available():
 	_dialogues[0].print_contents()
 	

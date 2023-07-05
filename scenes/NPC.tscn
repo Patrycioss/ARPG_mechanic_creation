@@ -1,50 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqxemw0bjsmtp"]
+[gd_scene load_steps=7 format=3 uid="uid://cqxemw0bjsmtp"]
 
 [ext_resource type="Script" path="res://scripts/NPC.gd" id="1_y8h4p"]
 [ext_resource type="Texture2D" uid="uid://ci105u5awo27a" path="res://sprites/flowey.png" id="2_qhmtb"]
+[ext_resource type="Script" path="res://scripts/dialogue/DialogueBuilder.gd" id="3_bjpvy"]
+[ext_resource type="Texture2D" uid="uid://bpyeis74cfi12" path="res://sprites/E.png" id="3_veg4r"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vw23f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lifup"]
 size = Vector2(24, 34)
-
-[sub_resource type="GDScript" id="GDScript_lk5ho"]
-script/source = "extends Node
-class_name DialogueBuilder
-
-@onready var entity_dict = get_node(\"/root/EntityDict\")
-
-func build_from_text_file(file_path : String):
-	
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	
-	var new_dialogue : Dialogue = Dialogue.new()
-	
-	while !file.eof_reached():
-		var line = file.get_line()
-		var message = \"\"
-		var reading_name = false		
-		var found_name = \"\"
-		for letter in line:
-			if letter == '[':
-				reading_name = true
-			elif reading_name:
-				if letter == ']':
-					reading_name = false
-				else:
-					found_name = found_name + letter	
-			else:
-				message = message + letter
-					
-		var entity = entity_dict.get_entity(found_name)
-		if entity == null:
-			print(\"Found entity while building dialogue is null!\")
-		else:
-			new_dialogue.add_message(Message.new(message, entity.get_ID()))
-	
-	new_dialogue.print_contents()
-	return new_dialogue
-"
 
 [node name="NPC" type="Node2D"]
 script = ExtResource("1_y8h4p")
@@ -71,4 +35,9 @@ scale = Vector2(2.8963, 2.8963)
 shape = SubResource("RectangleShape2D_lifup")
 
 [node name="DialogueBuilder" type="Node" parent="."]
-script = SubResource("GDScript_lk5ho")
+script = ExtResource("3_bjpvy")
+
+[node name="E" type="Sprite2D" parent="."]
+position = Vector2(0, -71)
+scale = Vector2(0.522742, 0.522742)
+texture = ExtResource("3_veg4r")

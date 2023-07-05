@@ -14,6 +14,7 @@ var _dialogue_built = false
 func _ready():
 	super._ready()
 	on_hit.connect(_on_hit)
+	dialogue_manager.connect_npc(self)
 	
 
 func _physics_process(delta):
