@@ -4,6 +4,8 @@ class_name Dialogue
 var index : int = 0
 @export var messages : Array
 
+func _init(pMessages : Array):
+	messages = pMessages
 
 func print_contents():
 	for n in messages:

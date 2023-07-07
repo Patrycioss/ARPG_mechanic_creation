@@ -1,11 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqxemw0bjsmtp"]
+[gd_scene load_steps=8 format=3 uid="uid://cqxemw0bjsmtp"]
 
 [ext_resource type="Script" path="res://scripts/NPC.gd" id="1_y8h4p"]
 [ext_resource type="Texture2D" uid="uid://ci105u5awo27a" path="res://sprites/flowey.png" id="2_qhmtb"]
 [ext_resource type="Script" path="res://scripts/dialogue/DialogueBuilder.gd" id="3_bjpvy"]
 [ext_resource type="Texture2D" uid="uid://bpyeis74cfi12" path="res://sprites/E.png" id="3_veg4r"]
 
+[sub_resource type="Animation" id="Animation_dttol"]
+resource_name = "idle_flowey"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vw23f"]
+_data = {
+"idle_flowey": SubResource("Animation_dttol")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lifup"]
 size = Vector2(24, 34)
@@ -23,6 +43,7 @@ collision_mask = 7
 scale = Vector2(2.8963, 2.8963)
 texture = ExtResource("2_qhmtb")
 hframes = 3
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/Sprite2D"]
 libraries = {
@@ -37,7 +58,7 @@ shape = SubResource("RectangleShape2D_lifup")
 [node name="DialogueBuilder" type="Node" parent="."]
 script = ExtResource("3_bjpvy")
 
-[node name="E" type="Sprite2D" parent="."]
+[node name="Interact" type="Sprite2D" parent="."]
 position = Vector2(0, -71)
 scale = Vector2(0.522742, 0.522742)
 texture = ExtResource("3_veg4r")

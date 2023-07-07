@@ -2,9 +2,12 @@ extends Entity
 
 @export var speed = 400
 @export var animation_player : AnimationPlayer
+@export var dialogue_manager : DialogueManager
 
 var screen_size
 var right_x_scale
+
+@export var interact_range : float = 1
 
 func _ready():
 	super._ready()
@@ -14,6 +17,39 @@ func _ready():
 		var b = a.get_visible_rect()
 		if b != null:
 			screen_size = b.size
+
+func _input(event):
+	if event.is_action_pressed("interact"):
+		var sDist = 9999999
+		var cEntity = null
+		
+		for entity in game_manager.get_entities():
+			if entity == self: 
+				continue
+			var dist = entity.position.distance_to(position)
+			if cEntity == null || dist < sDist:
+				cEntity = entity
+				sDist = dist
+	
+		print(sDist)
+		if sDist <= interact_range:
+			print("yep2")
+			cEntity.interact()		
+
+func _physics_process(_delta):
+	var sDist = 9999999
+	var cEntity = null
+	
+	for entity in game_manager.get_entities():
+		if entity == self: 
+			continue
+		var dist = entity.position.distance_to(position)
+		if cEntity == null || dist < sDist:
+			cEntity = entity
+			sDist = dist
+			
+		if sDist <= interact_range:
+			cEntity.ping_in_range()
 
 func _process(_delta):
 	var velocity = Vector2.ZERO

@@ -1,6 +1,8 @@
 class_name Entity
 extends Node2D
 
+var game_manager : GameManager
+
 #@export_category("ID")
 @export var _name : String
 @export var _ID_picture : Texture
@@ -20,6 +22,9 @@ var health : Health
 @onready var entity_dict = get_node("/root/EntityDict")
 
 signal on_hit
+
+var in_range : bool = false
+var ping_timer
 
 
 func _init():
@@ -46,3 +51,30 @@ func hit(amount : int):
 	on_hit.emit()
 	if damageable:
 		health.damage(amount)
+
+func interact():
+	pass
+
+func _physics_process(_delta):
+	if ping_timer.time_left == 0:
+		on_out_of_range()
+		
+func on_out_of_range():
+	print("out of range")
+	pass
+	
+func on_in_range():
+	pass
+	
+func ping_in_range():
+	on_in_range()
+	
+	if ping_timer == null:
+		ping_timer = Timer.new()
+		add_child(ping_timer)
+		ping_timer.start(0.1)
+		ping_timer.timeout.connect(on_out_of_range)
+	else:
+		ping_timer.start(0.1)
+	
+	pass

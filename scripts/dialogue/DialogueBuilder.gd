@@ -7,7 +7,8 @@ func build_from_text_file(file_path : String):
 	
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	
-	var new_dialogue : Dialogue = Dialogue.new()
+	var messages : Array = []
+	
 	
 	while !file.eof_reached():
 		var line = file.get_line()
@@ -30,7 +31,8 @@ func build_from_text_file(file_path : String):
 			if entity == null:
 				print("Found entity while building dialogue is null!")
 			else:
-				new_dialogue.add_message(Message.new(message, entity.get_ID()))
+				messages.insert(messages.size(),Message.new(message, entity.get_ID()))
 	
+	var new_dialogue : Dialogue = Dialogue.new(messages)
 	new_dialogue.print_contents()
 	return new_dialogue

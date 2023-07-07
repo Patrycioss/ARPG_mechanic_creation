@@ -8,3 +8,10 @@ dialogue_path = "res://dialogue/d_flowey_1.txt"
 _name = "Flowey"
 _ID_picture = ExtResource("2_wv25n")
 damageable = false
+
+[node name="Sprite2D" parent="Area2D" index="0"]
+frame = 2
+
+[node name="AnimationPlayer" parent="Area2D/Sprite2D" index="0"]
+autoplay = "idle_flowey"
+method_call_mode = 1
