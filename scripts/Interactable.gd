@@ -12,6 +12,7 @@ func on_in_range():
 	pass
 
 func _ready():
+	super._ready()
 	interact_indicator.visible = false
 
 func _physics_process(_delta):

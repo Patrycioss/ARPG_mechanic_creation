@@ -8,14 +8,6 @@ var _interactables : Array = []
 var _dialogueManager : DialogueManager = null
 var _items : Array = []
 
-func _input(event):
-	if event.is_action_pressed("interact"):
-		for n in _entities:
-			print(n)
-		
-		for p in _items:
-			print(p)	
-
 func get_player():
 	return _player
 
