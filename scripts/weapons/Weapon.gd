@@ -1,26 +1,19 @@
 extends Sprite2D
 class_name Weapon
+var w_owner : Entity
 
 @export var cooldown_seconds = 0
 @export var strength = 1
-
 @onready var timer = $Timer
 
 func _ready():
 	timer.one_shot = true
 
-
 func _process(_delta : float):
 	if Input.is_action_pressed("attack"):
-		try_use()
+		if abs(timer.get_time_left()) <= 0.0001:
+			_use()
+			timer.start(cooldown_seconds)
 
-func use():
+func _use():
 	pass
-
-func try_use() -> bool:
-	if abs(timer.get_time_left()) <= 0.0001:
-		use()
-		timer.start(cooldown_seconds)
-		return true
-	else: 
-		return false		

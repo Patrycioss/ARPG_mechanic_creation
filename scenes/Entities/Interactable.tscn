@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://u72xi54yq2i0"]
+
+[ext_resource type="PackedScene" uid="uid://dmg2fsdcgfnq5" path="res://scenes/Entities/Entity.tscn" id="1_uu6ce"]
+[ext_resource type="Script" path="res://scripts/Interactable.gd" id="2_7n3ff"]
+[ext_resource type="Texture2D" uid="uid://bpyeis74cfi12" path="res://sprites/E.png" id="3_0ouox"]
+
+[node name="Interactable" instance=ExtResource("1_uu6ce")]
+script = ExtResource("2_7n3ff")
+damageable = false
+
+[node name="Healthbar" parent="." index="0"]
+visible = false
+
+[node name="Interact" type="Sprite2D" parent="." index="2"]
+position = Vector2(0, -71)
+scale = Vector2(0.522742, 0.522742)
+texture = ExtResource("3_0ouox")

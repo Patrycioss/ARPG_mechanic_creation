@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5d6752ocp3d3"]
+
+[ext_resource type="PackedScene" uid="uid://qxudsbxoiatq" path="res://scenes/Entities/NPCS/NPC.tscn" id="1_0k6qg"]
+[ext_resource type="Texture2D" uid="uid://cygayca1ouatq" path="res://sprites/single_flowey.png" id="2_acsrq"]
+
+[node name="NPC-Flowey" instance=ExtResource("1_0k6qg")]
+_name = "Flowey"
+_ID_picture = ExtResource("2_acsrq")

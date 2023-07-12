@@ -9,12 +9,14 @@ var game_manager : GameManager
 
 var _ID : ID
 
+@export var healthbar : Sprite2D
 
 @export_category("STATS")
-@export var _start_health = 3
+@export var _start_health : int
 @export var damageable : bool = true
 
 var health : Health
+var weapon : Weapon
 
 @onready var sprite = $Area2D/Sprite2D
 @onready var area = $Area2D
@@ -25,18 +27,28 @@ signal on_hit
 
 var in_range : bool = false
 var ping_timer
-
-
-func _init():
+var _base_healthbar_scale
+		
+func update_healthbar():
+	var newScale = _base_healthbar_scale
+	newScale.x = health._amount * (_base_healthbar_scale.x / health.max_health)
+	healthbar.scale = newScale
+	
+func _ready():
 	health = Health.new(_start_health)
 	health.on_death.connect(_on_death)
 	health.amount_changed.connect(_on_health_change)
 	
-func _ready():
+	if weapon != null:
+		weapon.w_owner = self
+	
 	entity_dict = entity_dict as EntityDict
 	_ID = ID.new(_name, _ID_picture)
 	entity_dict.entities[_name] = self	
-	print("now entity with name %s" %_name)
+	
+	if healthbar:
+		_base_healthbar_scale = healthbar.get_transform().get_scale()
+		health.amount_changed.connect(update_healthbar)
 
 func get_ID():
 	return _ID	
@@ -53,28 +65,4 @@ func hit(amount : int):
 		health.damage(amount)
 
 func interact():
-	pass
-
-func _physics_process(_delta):
-	if ping_timer.time_left == 0:
-		on_out_of_range()
-		
-func on_out_of_range():
-	print("out of range")
-	pass
-	
-func on_in_range():
-	pass
-	
-func ping_in_range():
-	on_in_range()
-	
-	if ping_timer == null:
-		ping_timer = Timer.new()
-		add_child(ping_timer)
-		ping_timer.start(0.1)
-		ping_timer.timeout.connect(on_out_of_range)
-	else:
-		ping_timer.start(0.1)
-	
 	pass

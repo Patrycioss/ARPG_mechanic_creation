@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://btk6805micgu3"]
+
+[ext_resource type="PackedScene" uid="uid://dmg2fsdcgfnq5" path="res://scenes/Entities/Entity.tscn" id="1_8gdpc"]
+[ext_resource type="Texture2D" uid="uid://d3ur7i5mndk05" path="res://sprites/frisk/frames/down1.png" id="2_4ygok"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2_asv82"]
+[ext_resource type="Texture2D" uid="uid://bikxaiweumgke" path="res://sprites/frisk/frisksheet.png" id="3_51c2y"]
+[ext_resource type="PackedScene" uid="uid://q4kp2k5jjqqo" path="res://scenes/weapons/Sword.tscn" id="5_aysyo"]
+
+[node name="Player" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_8gdpc")]
+script = ExtResource("2_asv82")
+speed = 400
+animation_player = NodePath("Area2D/Sprite2D/AnimationPlayer")
+interact_range = 100.0
+_name = "Player"
+_ID_picture = ExtResource("2_4ygok")
+_start_health = 10
+
+[node name="Area2D" parent="." index="1"]
+collision_layer = 1
+
+[node name="Sprite2D" parent="Area2D" index="0"]
+texture = ExtResource("3_51c2y")
+hframes = 6
+vframes = 2
+
+[node name="Sword" parent="Area2D/Sprite2D" index="0" instance=ExtResource("5_aysyo")]
+position = Vector2(0, 0.690536)
+scale = Vector2(0.0945861, 0.0945861)
+
+[node name="CollisionShape2D" parent="Area2D" index="1"]
+position = Vector2(-1.11905e-06, -0.108277)
+rotation = -3.14159
+scale = Vector2(2.08253, -2.5755)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://di3lyoc4x735"]
+
+[ext_resource type="PackedScene" uid="uid://bj3t2d86jhjno" path="res://scenes/Entities/Enemies/Enemy.tscn" id="1_lfkgi"]
+[ext_resource type="Texture2D" uid="uid://cygayca1ouatq" path="res://sprites/single_flowey.png" id="2_rrp02"]
+
+[node name="EN-Flowey" instance=ExtResource("1_lfkgi")]
+attack_range = 40.0
+attack_cooldown_seconds = 5
+_name = "Flowey"
+_ID_picture = ExtResource("2_rrp02")
+
+[node name="Sprite2D" parent="Area2D" index="0"]
+frame = 1
+
+[node name="AnimationPlayer" parent="Area2D/Sprite2D" index="0"]
+autoplay = "flowey_idle"

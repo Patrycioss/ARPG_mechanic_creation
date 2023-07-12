@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj3t2d86jhjno"]
+
+[ext_resource type="PackedScene" uid="uid://dmg2fsdcgfnq5" path="res://scenes/Entities/Entity.tscn" id="1_rgs22"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="2_iaot2"]
+
+[node name="Enemy" instance=ExtResource("1_rgs22")]
+script = ExtResource("2_iaot2")
+speed = 300
+attack_damage = 1
+attack_range = 50.0
+attack_cooldown_seconds = 2
+_start_health = 3
+
+[node name="Area2D" parent="." index="1"]
+collision_mask = 3

@@ -13,8 +13,7 @@ func connect_npc(npc : NPC):
 	
 func disconnect_npc(npc : NPC):
 	var i = _connected_npcs.find(npc)
-	if (i != -1):
-		_connected_npcs.remove_at(i)
+	if (i != -1): _connected_npcs.remove_at(i)
 
 func get_connected_npcs():
 	return _connected_npcs
@@ -29,17 +28,14 @@ func add_dialogue(pDialogue : Dialogue):
 	_dialogues.insert(_dialogues.size(), pDialogue)
 
 func _advance():	
-	if not self.visible: 
-		return
+	if not self.visible: return
 	if _current_dialogue.message_available():
 		_display_message(_current_dialogue.next_message())
-	else:
-		self.visible = false
+	else: self.visible = false
 
 func _display_message(pMessage : Message):
 	texture_rect.texture = pMessage.get_ID().picture
 	label.text = pMessage.get_contents()	
 
 func _input(event):
-	if event.is_action_pressed("Next"):
-		_advance()
+	if event.is_action_pressed("Next"): _advance()

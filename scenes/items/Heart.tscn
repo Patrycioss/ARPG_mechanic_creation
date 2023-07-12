@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvahp45r81jiy"]
+
+[ext_resource type="PackedScene" uid="uid://bpt5vfx0lko26" path="res://scenes/items/Item.tscn" id="1_iopj5"]
+[ext_resource type="Script" path="res://scripts/items/Heart.gd" id="2_4je33"]
+[ext_resource type="Texture2D" uid="uid://bjsawabe165ga" path="res://sprites/heart pixel art 254x254.png" id="3_cjsw2"]
+
+[node name="Heart" instance=ExtResource("1_iopj5")]
+script = ExtResource("2_4je33")
+heal_amount = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.114286, 0.114286)
+texture = ExtResource("3_cjsw2")

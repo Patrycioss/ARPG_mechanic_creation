@@ -23,7 +23,4 @@ func next_message():
 	return message
 
 func add_message(pMessage : Message):
-	print("Inserting %s" %pMessage)
 	messages.insert(messages.size(), pMessage)
-
-

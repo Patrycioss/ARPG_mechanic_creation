@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://qxudsbxoiatq"]
+
+[ext_resource type="PackedScene" uid="uid://u72xi54yq2i0" path="res://scenes/Entities/Interactable.tscn" id="1_0k6qg"]
+[ext_resource type="Script" path="res://scripts/NPC.gd" id="2_7chvg"]
+[ext_resource type="Script" path="res://scripts/dialogue/DialogueBuilder.gd" id="2_h0qvn"]
+
+[node name="NPC" instance=ExtResource("1_0k6qg")]
+script = ExtResource("2_7chvg")
+dialogue_path = "res://dialogue/d_flowey_1.txt"
+messages = []
+
+[node name="AnimationPlayer" parent="Area2D/Sprite2D" index="0"]
+autoplay = "flowey_idle"
+
+[node name="DialogueBuilder" type="Node" parent="." index="3"]
+script = ExtResource("2_h0qvn")

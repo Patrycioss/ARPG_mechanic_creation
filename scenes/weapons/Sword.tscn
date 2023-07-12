@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://q4kp2k5jjqqo"]
 
-[ext_resource type="Texture2D" uid="uid://bnliqj0gjmvyp" path="res://sprites/sword/swordsheet.png" id="1_rxlqf"]
-[ext_resource type="Script" path="res://scripts/weapons/Sword.gd" id="2_heccn"]
+[ext_resource type="Texture2D" uid="uid://bnliqj0gjmvyp" path="res://sprites/sword/swordsheet.png" id="1_7ctyv"]
+[ext_resource type="Script" path="res://scripts/weapons/Sword.gd" id="2_kfl20"]
 
 [sub_resource type="Animation" id="Animation_urj24"]
 length = 0.001
@@ -168,9 +168,9 @@ _data = {
 size = Vector2(148.75, 71.375)
 
 [node name="Sword" type="Sprite2D"]
-texture = ExtResource("1_rxlqf")
+texture = ExtResource("1_7ctyv")
 hframes = 7
-script = ExtResource("2_heccn")
+script = ExtResource("2_kfl20")
 cooldown_seconds = 1
 
 [node name="Timer" type="Timer" parent="."]

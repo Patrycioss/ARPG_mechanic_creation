@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmg2fsdcgfnq5"]
+
+[ext_resource type="Script" path="res://scripts/Entity.gd" id="1_4qjlu"]
+[ext_resource type="Texture2D" uid="uid://c3g5i83w3g8mq" path="res://textures/red.png" id="2_aipr6"]
+[ext_resource type="Texture2D" uid="uid://ci105u5awo27a" path="res://sprites/flowey.png" id="3_jjtu0"]
+[ext_resource type="Animation" uid="uid://2o71xa3qkd65" path="res://sprites/frisk/animations/frisk_walkDown.res" id="4_tu0ek"]
+[ext_resource type="Animation" uid="uid://cem74pd00nfj2" path="res://sprites/frisk/animations/frisk_walkLeft.res" id="5_ocqy7"]
+[ext_resource type="Animation" uid="uid://bps6jltqrgjbh" path="res://sprites/frisk/animations/frisk_walkRight.res" id="6_343u0"]
+[ext_resource type="Animation" uid="uid://d0atwdk0cspoc" path="res://sprites/frisk/animations/frisk_walkUp.res" id="7_dx76o"]
+
+[sub_resource type="Animation" id="Animation_j27yk"]
+resource_name = "flowey_idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_3c3od"]
+resource_name = "nothing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vw23f"]
+_data = {
+"flowey_idle": SubResource("Animation_j27yk"),
+"frisk_walkDown": ExtResource("4_tu0ek"),
+"frisk_walkLeft": ExtResource("5_ocqy7"),
+"frisk_walkRight": ExtResource("6_343u0"),
+"frisk_walkUp": ExtResource("7_dx76o"),
+"nothing": SubResource("Animation_3c3od")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj7up"]
+size = Vector2(25.93, 25.8951)
+
+[node name="Entity" type="Node2D" node_paths=PackedStringArray("healthbar")]
+script = ExtResource("1_4qjlu")
+healthbar = NodePath("Healthbar")
+
+[node name="Healthbar" type="Sprite2D" parent="."]
+position = Vector2(0, -53)
+scale = Vector2(-60.6316, -7.66029)
+texture = ExtResource("2_aipr6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(2.8963, 2.8963)
+texture = ExtResource("3_jjtu0")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/Sprite2D"]
+autoplay = "nothing"
+libraries = {
+"": SubResource("AnimationLibrary_vw23f")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2.8963)
+scale = Vector2(2.8963, 2.8963)
+shape = SubResource("RectangleShape2D_gj7up")

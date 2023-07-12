@@ -1,8 +1,8 @@
 extends Entity
+class_name Player
 
 @export var speed = 400
 @export var animation_player : AnimationPlayer
-@export var dialogue_manager : DialogueManager
 
 var screen_size
 var right_x_scale
@@ -18,40 +18,44 @@ func _ready():
 		if b != null:
 			screen_size = b.size
 
-func _input(event):
-	if event.is_action_pressed("interact"):
-		var sDist = 9999999
-		var cEntity = null
-		
-		for entity in game_manager.get_entities():
-			if entity == self: 
-				continue
-			var dist = entity.position.distance_to(position)
-			if cEntity == null || dist < sDist:
-				cEntity = entity
-				sDist = dist
-	
-		print(sDist)
-		if sDist <= interact_range:
-			print("yep2")
-			cEntity.interact()		
-
 func _physics_process(_delta):
 	var sDist = 9999999
-	var cEntity = null
+	var cInteractable = null
 	
-	for entity in game_manager.get_entities():
-		if entity == self: 
+	for interactable in game_manager.get_interactables():
+		if not interactable: continue
+		if interactable == self: 
 			continue
-		var dist = entity.position.distance_to(position)
-		if cEntity == null || dist < sDist:
-			cEntity = entity
+		var dist = interactable.position.distance_to(position)
+		
+		if cInteractable == null || dist < sDist:
+			cInteractable = interactable
 			sDist = dist
 			
-		if sDist <= interact_range:
-			cEntity.ping_in_range()
+	
+	if cInteractable != null && sDist <= interact_range:
+		cInteractable.ping_in_range()
+		if Input.is_action_pressed("interact"):
+			cInteractable.interact()
+	
+func _on_death():
+	queue_free()				
 
 func _process(_delta):
+	var sDist = 999999
+	var cItem : Item = null
+	for item in game_manager.get_items():
+		if not item: continue
+		var dist = item.position.distance_to(position)
+		if cItem == null || dist < sDist:
+			cItem = item
+			sDist = dist
+			
+	if cItem != null && cItem.get_pickup_range() >= sDist:
+		print(sDist)
+		cItem.pickup(self)
+	
+	
 	var velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_right"):
@@ -71,18 +75,18 @@ func _process(_delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	elif velocity.length() == 0:
-		animation_player.play("walkDown")
+		animation_player.play("frisk_walkDown")
 		animation_player.pause()
 		
 
 	if velocity.y <= 0.5 && velocity.y >= -0.5:
-		animation_player.play("walkLeft")
+		animation_player.play("frisk_walkRight")
 		
 	elif velocity.y > 0.5:
-		animation_player.play("walkDown")
+		animation_player.play("frisk_walkDown")
 
 	elif velocity.y < -0.5:
-		animation_player.play("walkUp")
+		animation_player.play("frisk_walkUp")
 			
 	position += velocity * _delta
 

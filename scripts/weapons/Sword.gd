@@ -1,5 +1,5 @@
 extends Weapon
-
+class_name Sword
 @onready var animation_player = $AnimationPlayer
 
 func _ready():
@@ -7,27 +7,14 @@ func _ready():
 	cooldown_seconds = swing_length
 	super._ready()
 
-func use():
+func _use():
 	animation_player.play("swing")
-	
 
 func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
 		"swing": animation_player.play("idle")
 
-
 func _on_area_2d_area_entered(area):
-	print(area)
 	var entity := area.owner as Entity
-	print(entity)
-
-
-	if not entity:
-		return
-
-
-	if not entity.health:
-		print("what")
-	else:
+	if entity != null && entity.health != null: 
 		entity.health.damage(strength)
-	

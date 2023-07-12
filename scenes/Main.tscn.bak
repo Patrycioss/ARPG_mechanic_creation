@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dknkjgau60wsp"]
+[gd_scene load_steps=7 format=3 uid="uid://dknkjgau60wsp"]
 
 [ext_resource type="Script" path="res://scenes/GameManager.gd" id="1_5yhuj"]
 [ext_resource type="PackedScene" uid="uid://y4jnayg3odr" path="res://scenes/DialogueBox.tscn" id="3_xe3tw"]
-[ext_resource type="PackedScene" uid="uid://btk6805micgu3" path="res://scenes/Entities/Player.tscn" id="4_6y8qc"]
-[ext_resource type="PackedScene" uid="uid://c5d6752ocp3d3" path="res://scenes/Entities/NPCS/NPC-Flowey.tscn" id="5_6tagf"]
+[ext_resource type="PackedScene" uid="uid://dbryl4emau67k" path="res://scenes/Entities/Player.tscn" id="4_6y8qc"]
+[ext_resource type="PackedScene" uid="uid://d47j54m64578" path="res://scenes/NPC-Flowey.tscn" id="5_6tagf"]
 [ext_resource type="PackedScene" uid="uid://di3lyoc4x735" path="res://scenes/Entities/Enemies/EN-Flowey.tscn" id="5_e5eyd"]
-[ext_resource type="PackedScene" uid="uid://cvahp45r81jiy" path="res://scenes/items/Heart.tscn" id="6_bac83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk6vs"]
 size = Vector2(1139, 92)
@@ -35,16 +34,11 @@ shape = SubResource("RectangleShape2D_gk6vs")
 position = Vector2(1077, 447)
 speed = 150
 
+[node name="NPC-Flowey" parent="Node2D" instance=ExtResource("5_6tagf")]
+position = Vector2(576, 499)
+
 [node name="Player" parent="Node2D" instance=ExtResource("4_6y8qc")]
 position = Vector2(200, 419)
 _start_health = 5
 
-[node name="NPC-Flowey" parent="Node2D" instance=ExtResource("5_6tagf")]
-position = Vector2(573, 425)
-
-[node name="Heart" parent="Node2D" instance=ExtResource("6_bac83")]
-position = Vector2(859, 476)
-_pickup_range = 10
-
 [connection signal="child_entered_tree" from="Node2D" to="Node2D" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Node2D" to="Node2D" method="_on_child_exiting_tree"]
