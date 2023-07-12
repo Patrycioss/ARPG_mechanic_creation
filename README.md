@@ -8,5 +8,5 @@ so the dialogue can always make use of entities. It also shows that when the pla
 I used the character sprites of Frisk and Flowey from the game Undertale as I am not an artist and these look good in my opinion. 
 I also used a sword animation made by [PixelOwen](https://www.deviantart.com/pixelowen/art/A-Sword-Swing-Animation-2D-873175006 )
 
-![1](https://github.com/Patrycioss/ARPG_mechanic_creation/assets/72610925/f2cc0aca-44bf-4d9f-bfd6-dc380607de60)
-![2-dialouges](https://github.com/Patrycioss/ARPG_mechanic_creation/assets/72610925/167a6ec3-4613-4550-9c8c-736938c6eea0)
+![2-dialouges](https://github.com/Patrycioss/ARPG_mechanic_creation/assets/72610925/ac828974-672b-405d-96de-eb7fc3bd5766)
+![1](https://github.com/Patrycioss/ARPG_mechanic_creation/assets/72610925/8276f570-0bd4-410a-96eb-1205af28ec76)
